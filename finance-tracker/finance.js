@@ -28,6 +28,13 @@ function getTotalIncome() {
 
 function getTotalExpenses() {
   // TODO: Implement this function
+  let total = 0;
+  for (let i = 0; i < transactions.length; i++) {
+    if (transactions[i].type === "expense") {
+      total += transactions[i].amount;
+    }
+  }
+  return total;
 }
 
 function getBalance() {
