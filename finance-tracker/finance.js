@@ -87,3 +87,14 @@ function printAllTransactions() {
   }
   console.log("-----------------------------------------------\n");
 }
+
+
+module.exports = {
+  addTransaction,
+  getTotalIncome,
+  getTotalExpenses,
+  getBalance,
+  getTransactionsByCategory,
+  getLargestExpense,
+  printAllTransactions
+};
