@@ -31,3 +31,10 @@ addTransaction({
   amount: 40,
   description: "Sold old headphones"
 });
+
+console.log("\nAfter adding transactions:");
+printAllTransactions();
+
+console.log("New total income:    €" + getTotalIncome().toFixed(2));
+console.log("New total expenses:  €" + getTotalExpenses().toFixed(2));
+console.log("New balance:         €" + getBalance().toFixed(2));
