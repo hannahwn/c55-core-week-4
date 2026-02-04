@@ -38,3 +38,14 @@ printAllTransactions();
 console.log("New total income:    €" + getTotalIncome().toFixed(2));
 console.log("New total expenses:  €" + getTotalExpenses().toFixed(2));
 console.log("New balance:         €" + getBalance().toFixed(2));
+
+console.log("All 'Food' transactions:");
+console.log(getTransactionsByCategory("Food"));
+
+console.log("\nLargest expense:");
+const biggest = getLargestExpense();
+if (biggest) {
+  console.log("#" + biggest.id + " " + biggest.category + " €" + biggest.amount + " – " + biggest.description);
+} else {
+  console.log("No expenses found.");
+}
