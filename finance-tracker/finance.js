@@ -1,4 +1,4 @@
-const { transactions } = require("./data.js");
+const chalk = require("chalk");
 
 function addTransaction(transaction) {
   // TODO: Implement this function
