@@ -39,6 +39,7 @@ function getTotalExpenses() {
 
 function getBalance() {
   // TODO: Implement this function
+   return getTotalIncome() - getTotalExpenses();
 }
 
 function getTransactionsByCategory(category) {
