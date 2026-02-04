@@ -70,5 +70,20 @@ function getLargestExpense() {
 
 function printAllTransactions() {
   // TODO: Implement this function
+  console.log("\n=== Transactions ===");
+  console.log("ID | Type     | Amount | Category   | Description");
+  console.log("-----------------------------------------------");
   
+  for (let i = 0; i < transactions.length; i++) {
+    let t = transactions[i];
+    let sign = t.type === "income" ? "+" : "-";
+    console.log(
+      t.id + "  | " +
+      t.type.padEnd(8) + " | " +
+      sign + t.amount.toFixed(2).padStart(6) + " | " +
+      t.category.padEnd(10) + " | " +
+      t.description
+    );
+  }
+  console.log("-----------------------------------------------\n");
 }
