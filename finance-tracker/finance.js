@@ -1,4 +1,6 @@
 const chalk = require("chalk");
+const { transactions } = require("./data.js");
+
 
 function addTransaction(transaction) {
   // TODO: Implement this function
@@ -11,15 +13,14 @@ function addTransaction(transaction) {
   transaction.id = maxId + 1;
 
   transactions.push(transaction);
-  console.log("→ Added transaction #" + transaction.id);
-
+  console.log(chalk.green('→ Added transaction #' + transaction.id));
 }
 
 function getTotalIncome() {
   // TODO: Implement this function
-   let total = 0;
+  let total = 0;
   for (let i = 0; i < transactions.length; i++) {
-    if (transactions[i].type === "income") {
+    if (transactions[i].type === 'income') {
       total += transactions[i].amount;
     }
   }
@@ -30,7 +31,7 @@ function getTotalExpenses() {
   // TODO: Implement this function
   let total = 0;
   for (let i = 0; i < transactions.length; i++) {
-    if (transactions[i].type === "expense") {
+    if (transactions[i].type === 'expense') {
       total += transactions[i].amount;
     }
   }
@@ -39,12 +40,12 @@ function getTotalExpenses() {
 
 function getBalance() {
   // TODO: Implement this function
-   return getTotalIncome() - getTotalExpenses();
+  return getTotalIncome() - getTotalExpenses();
 }
 
 function getTransactionsByCategory(category) {
   // TODO: Implement this function
-    let found = [];
+  let found = [];
   for (let i = 0; i < transactions.length; i++) {
     if (transactions[i].category === category) {
       found.push(transactions[i]);
@@ -55,12 +56,12 @@ function getTransactionsByCategory(category) {
 
 function getLargestExpense() {
   // TODO: Implement this function
-   let largest = null;
+  let largest = null;
   let maxAmount = -1;
 
   for (let i = 0; i < transactions.length; i++) {
     let t = transactions[i];
-    if (t.type === "expense" && t.amount > maxAmount) {
+    if (t.type === 'expense' && t.amount > maxAmount) {
       largest = t;
       maxAmount = t.amount;
     }
@@ -70,24 +71,28 @@ function getLargestExpense() {
 
 function printAllTransactions() {
   // TODO: Implement this function
-  console.log("\n=== Transactions ===");
-  console.log("ID | Type     | Amount | Category   | Description");
-  console.log("-----------------------------------------------");
-  
+  console.log(chalk.bold('\n=== Transactions ==='));
+  console.log(chalk.bold('ID | Type     | Amount | Category   | Description'));
+  console.log('-----------------------------------------------');
+
   for (let i = 0; i < transactions.length; i++) {
     let t = transactions[i];
-    let sign = t.type === "income" ? "+" : "-";
+    let sign = t.type === 'income' ? '+' : '-';
     console.log(
-      t.id + "  | " +
-      t.type.padEnd(8) + " | " +
-      sign + t.amount.toFixed(2).padStart(6) + " | " +
-      t.category.padEnd(10) + " | " +
-      t.description
+      t.id +
+        '  | ' +
+        t.type.padEnd(8) +
+        ' | ' +
+        sign +
+        t.amount.toFixed(2).padStart(6) +
+        ' | ' +
+        t.category.padEnd(10) +
+        ' | ' +
+        t.description
     );
   }
-  console.log("-----------------------------------------------\n");
+  console.log('-----------------------------------------------\n');
 }
-
 
 module.exports = {
   addTransaction,
@@ -96,5 +101,5 @@ module.exports = {
   getBalance,
   getTransactionsByCategory,
   getLargestExpense,
-  printAllTransactions
+  printAllTransactions,
 };
