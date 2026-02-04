@@ -55,9 +55,20 @@ function getTransactionsByCategory(category) {
 
 function getLargestExpense() {
   // TODO: Implement this function
-  
+   let largest = null;
+  let maxAmount = -1;
+
+  for (let i = 0; i < transactions.length; i++) {
+    let t = transactions[i];
+    if (t.type === "expense" && t.amount > maxAmount) {
+      largest = t;
+      maxAmount = t.amount;
+    }
+  }
+  return largest;
 }
 
 function printAllTransactions() {
   // TODO: Implement this function
+  
 }
