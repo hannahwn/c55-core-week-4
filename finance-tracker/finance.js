@@ -44,10 +44,18 @@ function getBalance() {
 
 function getTransactionsByCategory(category) {
   // TODO: Implement this function
+    let found = [];
+  for (let i = 0; i < transactions.length; i++) {
+    if (transactions[i].category === category) {
+      found.push(transactions[i]);
+    }
+  }
+  return found;
 }
 
 function getLargestExpense() {
   // TODO: Implement this function
+  
 }
 
 function printAllTransactions() {
